@@ -1,7 +1,7 @@
 2005253 = {
 	name = "Osberht"
 	dynasty = 814
-	religion = "catholic"
+	religion = "norse_pagan"
 	culture = anglo_saxon
 	father = 205253
 	trait = viking
