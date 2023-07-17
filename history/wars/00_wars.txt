@@ -1,0 +1,19 @@
+#Sons of Lothbrok Invasion of Northumberland
+war = {
+	name = "war_867_Lothbrok_Invasion_of_Northumberland"
+	start_date = 865.1.1
+	end_date = 867.3.21
+	targeted_titles = {
+		d_northumberland
+		d_lancaster
+	}
+	casus_belli = sons_of_lothbrok_invasion_uthred_cb
+	attackers = { 163112 163108 }
+	defenders = { 163103 163102 33358 }
+
+	163112 = {
+		865.1.1 = {
+			location = 1595
+		}
+	}
+}
