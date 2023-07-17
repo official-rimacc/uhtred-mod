@@ -1,14 +1,13 @@
-}
 2005253 = {
 	name = "Osberht"
 	dynasty = 814
 	religion = "catholic"
 	culture = anglo_saxon
 	father = 205253
-	805.1.1 = {
+	856.1.1 = {
 		birth = "856.1.1"
 	}
-	866.1.1 = {
+	1016.1.1 = {
 		death = "1016.1.1"
 	}
 }
