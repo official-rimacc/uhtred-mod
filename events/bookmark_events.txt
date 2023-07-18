@@ -1,0 +1,87 @@
+﻿
+namespace = bookmark
+
+### The Ragnarsson brothers catch King Aella ##
+# The event can trigger when you imprison Aella as one of his sons
+# It also works for other norse!
+
+bookmark.0003 = { #by Mathilda Bjarnehed
+	type = character_event
+	hidden = yes
+	
+	trigger = {
+		scope:imprisoner.faith = { trait_is_virtue = vengeful }
+		scope:imprisoner = {
+			any_close_family_member = {
+				even_if_dead = yes
+				exists = killer
+				killer = root
+				save_temporary_scope_as = killed_character
+			}
+		}
+		#If the imprisoner don't know you're the killer you might reveal yourself if you're dumb or not sneaky
+		trigger_if = {
+			limit = {
+				any_secret = {
+					secret_type = secret_murder
+					secret_target = scope:killed_character
+					NOT = { any_secret_knower = { this = scope:imprisoner } }
+				}
+			}
+			OR = {
+				has_trait = intellect_bad
+				has_trait = dull
+				intrigue <= medium_skill_rating
+			}
+			NOR = {
+				has_trait = shrewd
+				has_trait = intellect_good
+				has_trait = schemer
+			}
+		}
+		trigger_if = {
+			limit = { this = character:163103 } #Aella
+			NOT = {
+				is_target_in_global_variable_list = {
+					name = triggered_bookmark_events
+					target = flag:bookmark_867_northmen_aellas_capture
+				}
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = { this = character:163103 } #Aella
+			add_to_global_variable_list = {
+				name = triggered_bookmark_events
+				target = flag:bookmark_867_northmen_aellas_capture
+			}
+		}
+		save_scope_as = prisoner
+
+		scope:imprisoner = {
+			random_close_family_member = {
+				even_if_dead = yes
+				limit = {
+					exists = killer
+					killer = root
+					this = character:163109 #Lodbrok
+				}
+				alternative_limit = {
+					exists = killer
+					killer = root
+				}
+				save_scope_as = dead
+			}
+			trigger_event = {
+				id = bookmark.0004
+				days = 1
+			}
+			trigger_event = {
+				id = uhtred_events.0001
+				days = 1
+			}
+		}
+	}
+}
