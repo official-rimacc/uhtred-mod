@@ -1,0 +1,46 @@
+namespace = uhtred_events
+
+uhtred_events.0001 = {
+
+        type = character_event
+        Title = "Destiny's Dilemma - Uhtred's Crossroads"
+        desc = Uhtred.1
+
+        theme = dungeon
+        right_portrait = {
+            character = character:2005253
+            animation = anger
+        }
+        option = {
+            name = "A fine servant for Ragnarr"
+                character:2005253 = {
+                    set_father = character:40607 
+                    set_character_faith = faith:norse_pagan
+                    }
+                character:40607 = {
+                    pay_short_term_gold = { target = root gold = 50 }
+                }
+                
+
+            ai_chance = {
+                factor = 70
+            }
+            # Add any actions you want to happen when this option is chosen
+            # For example:
+            # add_character_modifier = my_modifier
+            # event_target: <target>
+            # event_target: <target2>
+        }
+
+        option = {
+            name = "Off to the Market Square!"
+            # Add conditions for Option 2, if desired
+            ai_chance = {
+                factor = 30
+            }
+            # Add actions for Option 2, if desired
+        }
+
+        # Add more options if needed, following the same format as above
+    }
+}

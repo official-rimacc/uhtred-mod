@@ -1375,8 +1375,16 @@ sons_of_lothbrok_invasion_uthred_cb = {
 		#EP2 accolade glory gain for winning against higher ranked enemy
 		scope:attacker = { accolade_attacker_war_end_glory_gain_high_effect = yes }
 
-		#Adopts uthred
-		character:2005253 = {set_father = scope:attacker}
+		#Imprisons uhtred
+		imprison_character_effect = {
+			TARGET = character:2005253
+			IMPRISONER = scope:attacker
+		}
+
+		trigger_event = { # Makes another event happen
+		id = uhtred.0001 # The event ID is the thing at the top (so stewardship_domain.6017 is valid, as is any other event, so long as it exists).
+		days = { 7 14 } # Get random number between two values (unknown wether it is inclusive or exclusive), anything that takes = {X Y} can also just work as = X
+	}
 
 		create_title_and_vassal_change = {
 			type = conquest
