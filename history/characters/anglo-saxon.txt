@@ -1,11 +1,12 @@
 2005253 = {
-	name = "Osberht"
-	dynasty = 814
-	religion = "norse_pagan"
+	name = "Uhtred"
+	dynasty = 744
+	religion = catholic
 	culture = anglo_saxon
 	father = 205253
-	trait = viking
-	trait = bastard_founder
+	trait = disinherited
+	trait = rowdy
+	trait = brave
 	856.1.1 = {
 		birth = "856.1.1"
 	}
