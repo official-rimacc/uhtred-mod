@@ -6,23 +6,20 @@ uhtred_events.0001 = {
         Title = "Destiny's Dilemma - Uhtred's Crossroads"
         desc = Uhtred.1
 
-        immediate = {
-            #Imprisons uhtred
-            imprison_character_effect = {
-                TARGET = character:2005253
-                IMPRISONER = character:40607
-            }
-        }
-        
         theme = dungeon
         right_portrait = {
             character = character:2005253
             animation = anger
         }
+
+        #Ragnarr adopts Uhtred
         option = {
             name = "A fine servant for Ragnarr"
+
             character:2005253 = {
                 set_father = character:40607 
+                set_relation_guardian = character:40607
+                visit_court_of = character:40607.host
                 set_character_faith = faith:norse_pagan
             }
             character:40607 = {
@@ -34,14 +31,17 @@ uhtred_events.0001 = {
             }
         }
 
+        #Sells Uhtred to a random place
         option = {
             name = "Off to the Market Square!"
-            # Add conditions for Option 2, if desired
+
+            character:2005253 = {
+                select_and_move_to_pool_effect = yes
+            }
+            add_gold = 50
+            
             ai_chance = {
                 base = 30
             }
-            # Add actions for Option 2, if desired
         }
-
-        # Add more options if needed, following the same format as above
 }
